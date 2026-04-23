@@ -8,10 +8,6 @@
     "light": "#60A5FA",
     "dark": "#1E40AF"
   },
-  "logo": {
-    "light": "/logo/logo.png",
-    "dark": "/logo/logo.png"
-  },
   "favicon": "/logo/logo.png",
   "navigation": {
     "tabs": [
