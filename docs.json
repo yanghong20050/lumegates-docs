@@ -23,7 +23,8 @@
           {
             "group": "Platform",
             "pages": [
-              "pricing"
+             "page": "Pricing",
+              "href": "https://lumegates.com/models"
             ]
           }
         ]
