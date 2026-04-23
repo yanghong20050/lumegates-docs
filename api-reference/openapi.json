@@ -16,7 +16,11 @@
       "post": {
         "summary": "Chat Completions",
         "operationId": "createChatCompletion",
-        "security": [{ "bearerAuth": [] }],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -24,7 +28,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "model": { "type": "string", "example": "gpt-4o" },
+                  "model": {
+                    "type": "string",
+                    "example": "gpt-4o"
+                  },
                   "messages": {
                     "type": "array",
                     "items": {
