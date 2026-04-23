@@ -1,6 +1,6 @@
 ---
 title: "Quickstart"
-description: "Start calling enterprise-grade AI models in under 30 seconds."
+description: "Start calling AI models in under 30 seconds."
 ---
 
 LumeGates is fully compatible with the OpenAI API. If you are already using OpenAI's SDKs, you only need to change the `API Key` and the `Base URL`.
@@ -41,7 +41,9 @@ response = client.chat.completions.create(
 )
 
 print(response.choices[0].message.content)
+```
 
+```bash cURL
 curl [https://api.lumegates.com/v1/chat/completions](https://api.lumegates.com/v1/chat/completions) \
   -H "Authorization: Bearer YOUR_LUMEGATES_TOKEN" \
   -H "Content-Type: application/json" \
@@ -51,7 +53,9 @@ curl [https://api.lumegates.com/v1/chat/completions](https://api.lumegates.com/v
       {"role": "user", "content": "Hello LumeGates!"}
     ]
   }'
+```
 
+```javascript Node.js
 import OpenAI from "openai";
 
 const openai = new OpenAI({
@@ -69,4 +73,6 @@ async function main() {
 }
 
 main();
+```
+
 </CodeGroup>
