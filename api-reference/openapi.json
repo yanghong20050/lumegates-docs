@@ -15,13 +15,8 @@
     "/chat/completions": {
       "post": {
         "summary": "Chat Completions",
-        "description": "Create responses for any supported model using a unified format.",
         "operationId": "createChatCompletion",
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
+        "security": [{ "bearerAuth": [] }],
         "requestBody": {
           "required": true,
           "content": {
@@ -29,38 +24,18 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "model": {
-                    "type": "string",
-                    "description": "ID of the model to use (e.g., gpt-4o, claude-3-5-sonnet)",
-                    "example": "gpt-4o"
-                  },
+                  "model": { "type": "string", "example": "gpt-4o" },
                   "messages": {
                     "type": "array",
                     "items": {
                       "type": "object",
                       "properties": {
-                        "role": {
-                          "type": "string",
-                          "enum": ["system", "user", "assistant"],
-                          "example": "user"
-                        },
-                        "content": {
-                          "type": "string",
-                          "example": "Hello LumeGates!"
-                        }
+                        "role": { "type": "string", "example": "user" },
+                        "content": { "type": "string", "example": "Hello LumeGates!" }
                       }
                     }
                   },
-                  "stream": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Whether to stream the response."
-                  },
-                  "temperature": {
-                    "type": "number",
-                    "default": 1,
-                    "example": 0.7
-                  }
+                  "stream": { "type": "boolean", "default": false }
                 }
               }
             }
@@ -74,16 +49,39 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "id": { "type": "string" },
-                    "choices": { "type": "array", "items": { "type": "object" } },
-                    "usage": { "type": "object" }
+                    "id": { "type": "string", "example": "chatcmpl-123" },
+                    "object": { "type": "string", "example": "chat.completion" },
+                    "created": { "type": "integer", "example": 1677652288 },
+                    "model": { "type": "string", "example": "gpt-4o" },
+                    "choices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "index": { "type": "integer", "example": 0 },
+                          "message": {
+                            "type": "object",
+                            "properties": {
+                              "role": { "type": "string", "example": "assistant" },
+                              "content": { "type": "string", "example": "Hello! How can I help you today?" }
+                            }
+                          },
+                          "finish_reason": { "type": "string", "example": "stop" }
+                        }
+                      }
+                    },
+                    "usage": {
+                      "type": "object",
+                      "properties": {
+                        "prompt_tokens": { "type": "integer", "example": 9 },
+                        "completion_tokens": { "type": "integer", "example": 12 },
+                        "total_tokens": { "type": "integer", "example": 21 }
+                      }
+                    }
                   }
                 }
               }
             }
-          },
-          "401": {
-            "description": "Unauthorized - Check your API key"
           }
         }
       }
@@ -93,8 +91,7 @@
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
+        "scheme": "bearer"
       }
     }
   }
