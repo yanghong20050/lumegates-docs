@@ -25,6 +25,19 @@
             ]
           },
           {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": ["api-reference/introduction"]
+          },
+          {
+            "group": "Endpoints",
+            "pages": ["api-reference/endpoint/chat"]
+          }
+        ]
+      }
+          {
             "group": "Platform",
             "pages": [
              "page": "Pricing",
