@@ -1,5 +1,5 @@
 {
-  "description": "The most reliable AI model gateway for developers."
+  "description": "The most reliable AI model gateway for developers.",
   "$schema": "https://mintlify.com/docs.json",
   "name": "LumeGates",
   "openapi": "api-reference/openapi.json",
@@ -40,7 +40,7 @@
             "group": "Introduction",
             "pages": [
               "api-reference/introduction",
-              "api-reference/errors" 
+              "api-reference/errors"
             ]
           },
           {
