@@ -16,7 +16,6 @@ LumeGates is fully compatible with the OpenAI API. Simply update the `API Key` a
 All requests should be sent to: `https://api.lumegates.com/v1`
 
 ## 3. Make Your First Request
-
 <CodeGroup>
 
 ```python Python
@@ -24,7 +23,7 @@ from openai import OpenAI
 
 client = OpenAI(
     api_key="YOUR_LUMEGATES_TOKEN",
-    base_url="https://api.lumegates.com/v1"
+    base_url="[https://api.lumegates.com/v1](https://api.lumegates.com/v1)"
 )
 
 response = client.chat.completions.create(
@@ -35,7 +34,7 @@ print(response.choices[0].message.content)
 ```
 
 ```bash cURL
-curl https://api.lumegates.com/v1/chat/completions \
+curl [https://api.lumegates.com/v1/chat/completions](https://api.lumegates.com/v1/chat/completions) \
   -H "Authorization: Bearer YOUR_LUMEGATES_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
@@ -44,18 +43,86 @@ curl https://api.lumegates.com/v1/chat/completions \
   }'
 ```
 
+```go Go
+package main
+
+import (
+	"context"
+	"fmt"
+	"[github.com/sashabaranov/go-openai](https://github.com/sashabaranov/go-openai)"
+)
+
+func main() {
+	config := openai.DefaultConfig("YOUR_LUMEGATES_TOKEN")
+	config.BaseURL = "[https://api.lumegates.com/v1](https://api.lumegates.com/v1)"
+
+	client := openai.NewClientWithConfig(config)
+	resp, err := client.CreateChatCompletion(
+		context.Background(),
+		openai.ChatCompletionRequest{
+			Model: openai.GPT4o,
+			Messages: []openai.ChatCompletionMessage{
+				{
+					Role:    openai.ChatMessageRoleUser,
+					Content: "Hello LumeGates!",
+				},
+			},
+		},
+	)
+
+	if err != nil {
+		fmt.Printf("ChatCompletion error: %v\n", err)
+		return
+	}
+
+	fmt.Println(resp.Choices[0].Message.Content)
+}
+```
+
+```java Java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+public class LumeGatesExample {
+    public static void main(String[] args) throws Exception {
+        String apiKey = "YOUR_LUMEGATES_TOKEN";
+        String payload = """
+            {
+                "model": "gpt-4o",
+                "messages": [{"role": "user", "content": "Hello LumeGates!"}]
+            }
+            """;
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("[https://api.lumegates.com/v1/chat/completions](https://api.lumegates.com/v1/chat/completions)"))
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + apiKey)
+                .POST(HttpRequest.BodyPublishers.ofString(payload))
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+    }
+}
+```
+
 ```javascript Node.js
 import OpenAI from "openai";
 
 const openai = new OpenAI({
   apiKey: "YOUR_LUMEGATES_TOKEN",
-  baseURL: "https://api.lumegates.com/v1"
+  baseURL: "[https://api.lumegates.com/v1](https://api.lumegates.com/v1)"
 });
 
 const response = await openai.chat.completions.create({
   model: "gpt-4o",
   messages: [{ role: "user", content: "Hello LumeGates!" }],
 });
+
+console.log(response.choices[0].message.content);
 ```
 
 </CodeGroup>
