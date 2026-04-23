@@ -1,4 +1,5 @@
 {
+  "description": "The most reliable AI model gateway for developers."
   "$schema": "https://mintlify.com/docs.json",
   "name": "LumeGates",
   "openapi": "api-reference/openapi.json",
