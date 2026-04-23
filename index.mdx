@@ -1,23 +1,63 @@
 ---
 title: "Introduction"
-description: "The most reliable AI model distribution platform for global developers."
+description: "Enterprise-grade API distribution for frontier AI models."
 ---
 
-LumeGates is a high-performance AI model routing and distribution platform. We aggregate industry-leading models—including GPT-4o, Claude 3.5, DeepSeek, and Flux—into a single, unified API interface.
+LumeGates is a high-performance AI model routing platform. We aggregate the world's most powerful LLMs into a single, OpenAI-compatible API, allowing you to switch between flagship models with zero code changes.
 
-## Why LumeGates?
+## Key Features
 
 <CardGroup cols={2}>
-  <Card title="OpenAI Compatible" icon="code">
-    Drop-in replacement for any OpenAI-based application. Just change the `base_url`.
+  <Card title="Unified Interface" icon="layer-group">
+    Access all models via a single `/v1/chat/completions` endpoint.
   </Card>
-  <Card title="High Availability" icon="shield-check">
-    Enterprise-grade infrastructure with automatic failover and load balancing.
+  <Card title="Reliable Routing" icon="route">
+    Optimized channels ensure low latency and high success rates for every request.
   </Card>
-  <Card title="Cost Efficient" icon="coins">
-    Pay-as-you-go billing with competitive rates sourced from optimized channels.
+  <Card title="Flexible Billing" icon="credit-card">
+    Pay-as-you-go with transparent token usage tracking and management.
   </Card>
-  <Card title="Fast Response" icon="bolt">
-    Globally distributed edge nodes to ensure the lowest possible latency.
+  <Card title="Instant Integration" icon="bolt">
+    Fully compatible with OpenAI SDKs, LangChain, and other popular AI frameworks.
   </Card>
 </CardGroup>
+
+---
+
+## Supported Models
+
+We currently provide stable access to the following model families, as seen in your LumeGates dashboard:
+
+### OpenAI Flagships
+* `o1-preview` & `o1-mini` (Reasoning models)
+* `gpt-4o-latest` & `gpt-4o`
+* `gpt-4o-mini`
+* `gpt-4` (Standard)
+
+### Anthropic Series
+* `claude-3-5-sonnet`
+* `claude-3-5-thinking`
+
+### Regional & Specialized Models
+* `qwen-3.6-plus` (Alibaba Qwen)
+* `minimax-m2.5` (MiniMax)
+
+---
+
+## Start Building
+
+Get your API key and start integrating in minutes.
+
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Learn how to authenticate and make your first API call.
+  </Card>
+  <Card title="Models & Pricing" icon="tags" href="/pricing">
+    View detailed pricing multipliers for our supported models.
+  </Card>
+</CardGroup>
+
+## Support & Dashboard
+
+* **Management**: Monitor your usage and manage tokens at [lumegates.com](https://lumegates.com).
+* **Developer Support**: Access our community resources or open a ticket through the dashboard.
