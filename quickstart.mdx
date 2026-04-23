@@ -3,23 +3,19 @@ title: "Quickstart"
 description: "Start calling AI models in under 30 seconds."
 ---
 
-LumeGates is fully compatible with the OpenAI API. If you are already using OpenAI's SDKs, you only need to change the `API Key` and the `Base URL`.
+LumeGates is fully compatible with the OpenAI API. Simply update the `API Key` and the `Base URL` in your existing code.
 
 ## 1. Get Your API Key
 
 1. Log in to the [LumeGates Dashboard](https://lumegates.com).
-2. Navigate to the **Top-up** section to add credits to your account.
-3. Go to the **Tokens** page and click **Create New Token**. Copy your token for the next step.
+2. Navigate to the **Top-up** section to add credits.
+3. Go to the **Tokens** page and click **Create Token**.
 
 ## 2. Configure the Base URL
 
-All requests should be sent to our unified endpoint:
-
-`https://api.lumegates.com/v1`
+All requests should be sent to: `https://api.lumegates.com/v1`
 
 ## 3. Make Your First Request
-
-Use the examples below to verify your integration. Replace `YOUR_LUMEGATES_TOKEN` with the API key you generated in Step 1.
 
 <CodeGroup>
 
@@ -28,30 +24,23 @@ from openai import OpenAI
 
 client = OpenAI(
     api_key="YOUR_LUMEGATES_TOKEN",
-    base_url="[https://api.lumegates.com/v1](https://api.lumegates.com/v1)"
+    base_url="https://api.lumegates.com/v1"
 )
 
-# Use any model from your dashboard
 response = client.chat.completions.create(
     model="gpt-4o",
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Hello LumeGates!"}
-    ]
+    messages=[{"role": "user", "content": "Hello LumeGates!"}]
 )
-
 print(response.choices[0].message.content)
 ```
 
 ```bash cURL
-curl [https://api.lumegates.com/v1/chat/completions](https://api.lumegates.com/v1/chat/completions) \
+curl https://api.lumegates.com/v1/chat/completions \
   -H "Authorization: Bearer YOUR_LUMEGATES_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-4o",
-    "messages": [
-      {"role": "user", "content": "Hello LumeGates!"}
-    ]
+    "messages": [{"role": "user", "content": "Hello LumeGates!"}]
   }'
 ```
 
@@ -60,19 +49,13 @@ import OpenAI from "openai";
 
 const openai = new OpenAI({
   apiKey: "YOUR_LUMEGATES_TOKEN",
-  baseURL: "[https://api.lumegates.com/v1](https://api.lumegates.com/v1)"
+  baseURL: "https://api.lumegates.com/v1"
 });
 
-async function main() {
-  const completion = await openai.chat.completions.create({
-    messages: [{ role: "user", content: "Hello LumeGates!" }],
-    model: "gpt-4o",
-  });
-
-  console.log(completion.choices[0].message.content);
-}
-
-main();
+const response = await openai.chat.completions.create({
+  model: "gpt-4o",
+  messages: [{ role: "user", content: "Hello LumeGates!" }],
+});
 ```
 
 </CodeGroup>
