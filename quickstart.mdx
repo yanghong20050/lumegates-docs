@@ -31,7 +31,7 @@ client = OpenAI(
     base_url="[https://api.lumegates.com/v1](https://api.lumegates.com/v1)"
 )
 
-# You can use gpt-4o, claude-3-5-sonnet, etc.
+# Use any model from your dashboard
 response = client.chat.completions.create(
     model="gpt-4o",
     messages=[
