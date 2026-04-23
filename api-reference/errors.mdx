@@ -1,0 +1,38 @@
+---
+title: "Error Handling"
+description: "Common API error codes and solutions."
+---
+
+LumeGates uses standard HTTP status codes. If an error occurs, the response body will typically include a JSON object explaining the reason.
+
+## 🚀 Common Errors
+
+| Status | Meaning | Action |
+| :--- | :--- | :--- |
+| **401** | **Invalid API Key** | Check your Bearer token and headers. |
+| **402** | **Insufficient Balance** | Your balance is empty. Please top up in the [Dashboard](https://lumegates.com). |
+| **404** | **Model Not Found** | The requested model ID is incorrect or not supported. |
+| **429** | **Rate Limit Reached** | You've sent requests too quickly. Please slow down. |
+| **5xx** | **Server/Upstream Error** | All upstream channels are busy. The system is auto-switching. Try again in 10s. |
+
+---
+
+## 🔍 Key Troubleshooting
+
+### 402: Insufficient Balance
+This is the most frequent error. LumeGates requires a minimum balance to initiate requests for high-tier models (like GPT-4o or Claude 3.5). 
+* **Fix**: Ensure your credits are visible in the platform dashboard.
+
+### 429: Rate Limits
+To ensure stability for all users, we enforce Requests Per Minute (RPM) limits. 
+* **Fix**: Implement a retry logic with exponential backoff or reduce your concurrency.
+
+### 5xx: Service Availability
+Since LumeGates is a model aggregator, a `503` or `504` error usually means the specific upstream provider is timing out. 
+* **Our Response**: Our system monitors these errors in real-time and will automatically route your next request to a healthy alternative channel.
+
+---
+
+<Note>
+  **Need help?** If you encounter an error not listed here, please contact our support team via Telegram.
+</Note>
